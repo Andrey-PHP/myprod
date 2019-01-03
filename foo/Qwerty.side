@@ -1,0 +1,99 @@
+{
+  "id": "6172caee-9d09-496f-a670-695cc9f9aa07",
+  "version": "1.1",
+  "name": "Qwerty",
+  "url": "https://walabot.com",
+  "tests": [{
+    "id": "0ecdce4a-726b-4c28-a823-ec44bba5b237",
+    "name": "qerwqre",
+    "commands": [{
+      "id": "8275c844-7c52-4781-8e9a-56de0ee2f7e9",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d1014c31-179e-4f11-af8e-d66fc4481cf0",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1855x1056",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d897e927-fde4-425c-9849-c2622d1c6ee3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.device-item-col:nth-child(3) .img-responsive",
+      "targets": [
+        ["css=.device-item-col:nth-child(3) .img-responsive", "css:finder"],
+        ["xpath=//img[@title='walabot-maker']", "xpath:img"],
+        ["xpath=//div[@id='main-container']/section/section/div/div[3]/a/div[3]/div/img", "xpath:idRelative"],
+        ["xpath=//div[3]/a/div[3]/div/img", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "45314595-b83e-4d90-97ac-d4c57090e304",
+      "comment": "",
+      "command": "click",
+      "target": "css=#spu-6938 .spu-icon",
+      "targets": [
+        ["css=#spu-6938 .spu-icon", "css:finder"],
+        ["xpath=//div[@id='spu-6938']/span/i", "xpath:idRelative"],
+        ["xpath=//div[11]/span/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0c5e2bf1-bab9-40a9-b226-0bb821e79c62",
+      "comment": "",
+      "command": "checkWindow",
+      "target": "css=section.header",
+      "targets": [
+        ["css=section.header", "css"],
+        ["css=.header", "css:finder"],
+        ["xpath=//div[@id='main-container']/div/section", "xpath:idRelative"],
+        ["xpath=//section", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "bb17a8c8-3c20-4f77-99e8-cb9a18d4a979",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["0ecdce4a-726b-4c28-a823-ec44bba5b237"]
+  }],
+  "urls": ["https://walabot.com/"],
+  "plugins": [{
+    "id": "fbnkflkahhlmhdgkddaafgnnokifobik",
+    "name": "Applitools",
+    "version": "1.0.0"
+  }],
+  "snapshot": {
+    "globalConfig": {
+      "snapshot": "const Eyes = require('eyes.selenium').Eyes;let apiKey = process.env.APPLITOOLS_API_KEY, serverUrl = process.env.APPLITOOLS_SERVER_URL, appName = \"Qwerty\", batchId = configuration.runId, batchName;"
+    },
+    "suites": [{
+      "name": "Default Suite",
+      "persistSession": false,
+      "snapshot": {
+        "hook": "beforeAll(async () => {batchName = \"Default Suite\";});beforeEach(async () => {global.eyes = new Eyes(serverUrl, configuration.params.eyesDisabled);eyes.setApiKey(apiKey);eyes.setAgentId(\"eyes.seleniumide.runner\");eyes.setBatch(batchName, batchId);eyes.setHideScrollbars(true);});afterEach(async () => {if (eyes._isOpen) {await eyes.close();}});"
+      }
+    }],
+    "tests": [{
+      "id": "0ecdce4a-726b-4c28-a823-ec44bba5b237",
+      "snapshot": {
+        "commands": {
+          "0c5e2bf1-bab9-40a9-b226-0bb821e79c62": "eyes.setForceFullPageScreenshot(true);await eyes.checkWindow(\"css=section.header\" || (new URL(await driver.getCurrentUrl())).pathname).then(() => {eyes.setForceFullPageScreenshot(false);});"
+        },
+        "setupHooks": ["const _driver = driver;driver = await eyes.open(driver, appName, \"qerwqre\");"],
+        "teardownHooks": ["driver = _driver;"]
+      }
+    }]
+  },
+  "dependencies": {
+    "eyes.selenium": "0.0.81"
+  }
+}
